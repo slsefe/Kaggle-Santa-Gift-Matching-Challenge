@@ -32,6 +32,7 @@ child_pref = pd.read_csv('../input/gift_goodkids_v2.csv',header=None).drop(0, 1)
 def lcm(a, b):
     """Compute the lowest common multiple of a and b"""
     # in case of large numbers, using floor division
+    # a和b的乘积对a和b的最大公约数取整
     return a * b // math.gcd(a, b)
 
 def avg_normalized_happiness(pred, child_pref, gift_pref):
