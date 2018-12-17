@@ -12,30 +12,34 @@
 
 ### 1.3 评价指标
 
-目标是最大化
-`Average Normalized Happiness (ANH) = (AverageNormalizedChildHappiness (ANCH) ) ^ 3 + (AverageNormalizedSantaHappiness (ANSH) ) ^ 3`
+目标是最大化Average Normalized Happiness(ANH)
+`Average Normalized Happiness(ANH)=(AverageNormalizedChildHappiness(ANCH))^3+(AverageNormalizedSantaHappiness(ANSH))^3`
 
-- NCH：归一化孩子幸福感，等于每个孩子的幸福感除以幸福感的最大可能值。NSH：归一化礼物幸福感，等于每个礼物的幸福感除以礼物幸福感的最大可能值。
+- NCH：归一化孩子幸福感，等于每个孩子的幸福感除以幸福感的最大可能值。
+- NSH：归一化礼物幸福感，等于每个礼物的幸福感除以礼物幸福感的最大可能值。
 
 <img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;\fn_cs&space;\large&space;ANCH&space;=&space;\frac{1}{n_c}&space;\sum_{i=0}^{n_c-1}&space;\frac{ChildHappiness}{MaxChildHappiness}" title="\large ANCH = \frac{1}{n_c} \sum_{i=0}^{n_c-1} \frac{ChildHappiness}{MaxChildHappiness}" />
 
 <img src="https://latex.codecogs.com/gif.latex?\dpi{150}&space;\fn_cs&space;\large&space;ANSH&space;=&space;\frac{1}{n_g}&space;\sum_{i=0}^{n_g-1}&space;\frac{GiftHappiness}{MaxGiftHappiness}" title="\large ANSH = \frac{1}{n_g} \sum_{i=0}^{n_g-1} \frac{GiftHappiness}{MaxGiftHappiness}" />
 
-- n_c是孩子的数量，n_g是礼物的数量，MaxChildHappiness = len(ChildWishList) * 2,MaxGiftHappiness = len(GiftGoodKidsList) * 2.
-如果给孩子的礼物在孩子的愿望列表中，ChildHappiness = 2 * GiftOrder；否则ChildHappiness = -1。同样地，如果孩子在礼物的好孩子列表中GiftHappiness = 2 * ChildOrder否则GiftHappiness = -1.
-
+- n_c是孩子的数量
+- n_g是礼物的数量
+- MaxChildHappiness = len(ChildWishList) * 2
+- MaxGiftHappiness = len(GiftGoodKidsList) * 2.
+- 如果给孩子的礼物在孩子的愿望列表中，ChildHappiness = 2 * GiftOrder；否则ChildHappiness = -1。
+- 同样地，如果孩子在礼物的好孩子列表中GiftHappiness = 2 * ChildOrder否则GiftHappiness = -1.
 - For example, if a child has a preference of gifts [5,2,3,1,4], and is given gift 3, then ChildHappiness = [len(WishList)-indexOf(gift_3)] * 2 = [5 - 2] * 2 = 6. If this child is given gift 4, then ChildHappiness = [5-4] * 2 = 2. 
 
 - 如上述公式可知，ChildHappiness的计算过程如下：
 1. 若礼物不在愿望列表，为-1；
-2. 若礼物在愿望列表，同时与愿望列表的长度和礼物在愿望列表的顺序有关，由于孩子的愿望列表最多为10个，而且孩子的愿望列表长度不一样，所以每个孩子的幸福感的最大可能值由其愿望列表长度决定，为2 * len(WishList)，最小值在礼物为愿望列表最后一个时取到，为2。
+2. 若礼物在愿望列表，同时与愿望列表的长度和礼物在愿望列表的顺序有关，由于孩子的愿望列表最多为100个，而且孩子的愿望列表长度不一样，所以每个孩子的幸福感的最大可能值由其愿望列表长度决定，为2 * len(WishList)，最小值在礼物为愿望列表最后一个时取到，为2。
 - 计算Average Normalized Happiness的代码样例查看demo，来自https://www.kaggle.com/wendykan/average-normalized-happiness-demo
 
 ### 1.4 数据描述
 
 #### 1.4.1 数据构成
 
-- 1,000,000个孩子和他们的对1000个礼物的愿望列表
+- 1,000,000个孩子和他们的对1000个礼物的长度为100的愿望列表
 - 1000个礼物和他们倾向的1000个孩子列表
 
 #### 1.4.2 注意点：
@@ -51,7 +55,16 @@
 2. gift_goodkids_v2.csv：1000x1001，每一行代表一个giftID，后面是1000个偏好的ChildID
 3. sample_submission_random_v2.csv：100kx2，随机生成的提交样例文件，第一列是ChildID，第二列是GiftID。
 
-### 1.5 参考资料
+### 1.5 赛题分析
+
+#### 1.5.1 任务
+- 根据孩子和礼物的偏好列表为1,000,000个孩子和1,000,000个礼物（1000种礼物，每种1000个）配对
+#### 1.5.2 目标（目标函数）
+- 最大化孩子和礼物的幸福感
+#### 1.5.3 要求（限制条件）
+- 三胞胎和双胞胎必须有相同的礼物
+
+### 1.6 参考资料
 
 1. 冠军：https://www.kaggle.com/c/santa-gift-matching/discussion/47376
 2. 亚军：https://www.kaggle.com/c/santa-gift-matching/discussion/47386
