@@ -56,3 +56,12 @@
 1. 冠军：https://www.kaggle.com/c/santa-gift-matching/discussion/47376
 2. 亚军：https://www.kaggle.com/c/santa-gift-matching/discussion/47386
 3. 季军：https://www.kaggle.com/c/santa-gift-matching/discussion/47374
+
+## 2 submit log
+### 2.1 项目更新日志
+
+- 2018-12-17 创建项目，了解比赛背景
+
+### 2.2 代码提交日志
+
+- 2018-12-17 提交计算幸福感代码，demo/demo.py
