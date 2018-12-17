@@ -64,6 +64,13 @@
 #### 1.5.3 要求（限制条件）
 - 三胞胎和双胞胎必须有相同的礼物
 
+### 1.7 稳定匹配算法
+- Deferred Acceptance(DA)算法，也叫Gale-Shapley算法
+- Gale, David and Lloyd S Shapley. "College Admissions and the Stability of Marriage." American Mathematical Monthly,  (1962): 9-15.
+- Top trading cycle(TTC)算法
+- Shapley, Lloyd and Herbert Scarf. "On Cores and Indivisibility." Journal of mathematical economics 1, no. 1 (1974):23-37.
+- DA算法更多用于two-sided配对问题，如男女配对问题，以及劳动力市场里的企业和劳动者之间的配对，还有学生和学校之间的择校问题等等。而TTC算法更多应用于one-sided配对问题，也就是不可分割商品（indivisible good）的分配和交换问题，比如房屋分配问题。宿舍分配问题，器官移植问题，排课等等。
+
 ### 1.6 参考资料
 
 1. 冠军：https://www.kaggle.com/c/santa-gift-matching/discussion/47376
