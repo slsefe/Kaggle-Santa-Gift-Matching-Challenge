@@ -12,8 +12,8 @@
 
 ### 1.3 评价指标
 
-目标是最大化Average Normalized Happiness(ANH)
-`Average Normalized Happiness(ANH)=(AverageNormalizedChildHappiness(ANCH))^3+(AverageNormalizedSantaHappiness(ANSH))^3`
+- 目标是最大化Average Normalized Happiness(ANH)，计算公式如下：
+- `Average Normalized Happiness(ANH)=(AverageNormalizedChildHappiness(ANCH))^3+(AverageNormalizedSantaHappiness(ANSH))^3`
 
 - NCH：归一化孩子幸福感，等于每个孩子的幸福感除以幸福感的最大可能值。
 - NSH：归一化礼物幸福感，等于每个礼物的幸福感除以礼物幸福感的最大可能值。
