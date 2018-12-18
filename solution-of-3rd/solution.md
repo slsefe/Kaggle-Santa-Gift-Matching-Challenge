@@ -6,10 +6,11 @@
 - M：满足题目要求的所有匹配集合（即三胞胎和双胞胎拥有相同礼物）
 - M'：所有可能的匹配集合
 - 明显地，M是M'的子集
-- CH(m)：m匹配方案下所有childID的6*ChildHappiness的和
-- SH(m)：m匹配方案下所有giftID的6*GiftHappiness的和
+- CH(m)：m匹配方案下所有childID的6 * ChildHappiness的和
+- SH(m)：m匹配方案下所有giftID的6 * GiftHappiness的和
 - 其中m属于M'，这里乘以6是为了让这里的值都是整数
-- 目标为寻找最大化S(m)的m，其中m属于M，S(m)={10*CH(m)}^3+{SH(m)}^3，推导见下图：
+- 目标为寻找最大化S(m)的m，其中m属于M，S(m)={10 * CH(m)}^3+{SH(m)}^3，推导见下图：
+![image](https://github.com/slsefe/Santa-Gift-Matching-Challenge/solution of 3rd/0.png)
 
 ## 方案流程
 
