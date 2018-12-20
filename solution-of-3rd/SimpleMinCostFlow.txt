@@ -1,0 +1,41 @@
+说明：本文档是对OR-Tools中graph算法中的SimpleMinCostFlow类的属性和方法的简单说明
+
+SimpleMinCostFlow是一个简单高效的min-cost flow接口。
+
+1. 构造函数
+
+SimpleMinCostFlow
+构造函数没有任何大小.AddArcWithCapacityAndUnitCost()或SetNodeSupply()将懒惰地创建新节点索引，使得有效节点集始终为[0，NumNodes()).
+
+
+2. 属性
+
+Head：返回指定边的head结点的index
+Tail:返回指定边的tail的结点index
+Capacity：返回指定边的capacity
+UnitCost：返回指定边的单位花费
+Supply：返回指定结点的supply
+
+NumArcs：返回边的数量
+NumNodes：返回结点数量
+
+3. 方法
+
+AddArcWithCapacityAndUnitCost(NodeIndex tail, NodeIndex head, FlowQuantity capacity, CostValue unit_cost)
+
+功能：在当前的图上添加一条从tail到head带有capacity和unit cost的直接arc
+注意点：
+1. 结点索引和容量非负
+2. 单位花费取任意整数（包括负整数）
+3. 支持自循环和重复弧
+4. 方法调用后，NumArcs() == the returned ArcIndex + 1.
+
+
+SetNodeSupply(NodeIndex node, FlowQuantity supply)：无返回值，设定给定结点的supply
+注意点：结点index非负，隐式创建的结点默认supply为0,需求结点的supply为负
+
+Solve：解决问题，返回问题状态。要求所有节点的supply和为0，graph有足够的容量传输的supply，否则返回INFEASIBLE
+
+Flow：返回指定边的flow，只在一次成功地Solve()之后有效
+MaximumFlow：返回经过算法优化得到的minimum-cost flow的总flow
+OptimalCost：返回经过算法优化得到的minimum-cost flow的cost
