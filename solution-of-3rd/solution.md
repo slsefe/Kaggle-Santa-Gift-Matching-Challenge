@@ -1,5 +1,8 @@
 - 说明：本文是对这个比赛第三名证明方案的理解，参考了第三名提交的PDF证明和代码
 
+## 图结构
+
+![礼物配对问题的图结构](graph.jpg)
 
 ## 符号标识
 
@@ -10,8 +13,9 @@
 - SH(m)：m匹配方案下所有giftID的6 * GiftHappiness的和
 - 其中m属于M'，这里乘以6是为了让这里的值都是整数
 - 目标为寻找最大化S(m)的m，其中m属于M，S(m)={10 * CH(m)}^3+{SH(m)}^3，推导见下图：
-![image](https://github.com/slsefe/Santa-Gift-Matching-Challenge/solution-of-3rd/0.png)
+![image](proof.png)
 - 作者证明了最大可能的happiness为0.936301547258160369437137474，在CH(m)=1173959622,SH(m)=1703388时取到最大值
+
 
 ## 证明流程
 
