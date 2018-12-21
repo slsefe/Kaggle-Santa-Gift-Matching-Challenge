@@ -11,7 +11,7 @@ from collections import Counter
 # For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
 
 from subprocess import check_output
-print(check_output(["ls", "../input"]).decode("utf8"))
+print(check_output(["ls", "input"]).decode("utf8"))
 
 n_children = 1000000 # n children to give
 n_gift_type = 1000 # n types of gifts available
@@ -25,8 +25,8 @@ ratio_child_happiness = 2
 
 
 
-gift_pref = pd.read_csv('../input/child_wishlist_v2.csv',header=None).drop(0, 1).values
-child_pref = pd.read_csv('../input/gift_goodkids_v2.csv',header=None).drop(0, 1).values
+gift_pref = pd.read_csv('input/child_wishlist_v2.csv',header=None).drop(0, 1).values
+child_pref = pd.read_csv('input/gift_goodkids_v2.csv',header=None).drop(0, 1).values
 
 
 def lcm(a, b):
@@ -97,5 +97,5 @@ def avg_normalized_happiness(pred, child_pref, gift_pref):
     return float(math.pow(total_child_happiness*multiplier,3) + math.pow(np.sum(total_gift_happiness),3)) / float(math.pow(common_denom,3))
     # return math.pow(float(total_child_happiness)/(float(n_children)*float(max_child_happiness)),2) + math.pow(np.mean(total_gift_happiness) / float(max_gift_happiness*n_gift_quantity),2)
 
-random_sub = pd.read_csv('../input/sample_submission_random_v2.csv').values.tolist()
+random_sub = pd.read_csv('input/new.csv').values.tolist()
 print(avg_normalized_happiness(random_sub, child_pref, gift_pref))
